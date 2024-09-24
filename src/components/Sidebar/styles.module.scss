@@ -1,0 +1,27 @@
+.sidebarContainer {
+  width: auto;
+  padding: 1rem 0 0 2rem;
+
+  border-top: 2px solid var(--light-gray15);
+  border-right: 2px solid var(--light-gray15);
+
+  p {
+    margin-bottom: 1.5rem;
+
+    span {
+      opacity: .5;
+    }
+  }
+
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+  }
+}
+
+.sidebarContent {
+  display: flex;
+  flex-direction: column;
+}

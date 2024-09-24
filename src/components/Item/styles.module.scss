@@ -1,0 +1,31 @@
+.sidebar_content {
+    width: 340px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: .7rem 0.8rem .7rem 0;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.sidebar_content:hover {
+    transform:  translate(3px);
+}
+
+.sidebar_active {
+
+    color: var(--blue-3);
+}
+
+.sidebar_active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.8px;
+    height: 100%;
+    background-color: var(--blue-3);
+}
+
