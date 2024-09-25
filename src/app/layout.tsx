@@ -12,6 +12,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
+        <Section />
         <main className="main">
           <Sidebar />
           <section className="section_content">
