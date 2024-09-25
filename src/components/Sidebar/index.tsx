@@ -2,6 +2,8 @@
 
 import { SidebarItem } from '../Item';
 import styles from './styles.module.scss'
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface SidebarItemsProps {
     name: string
@@ -9,6 +11,8 @@ interface SidebarItemsProps {
 }
 
 export function Sidebar() {
+    const router = useRouter()
+    const [lastPath, setLastPath] = useState<string>("");
 
     const items: SidebarItemsProps[] = [
         { name: "Бытовая техника", path: "/" },
@@ -25,9 +29,14 @@ export function Sidebar() {
         { name: "Настольные ПК и моноблоки", path: "/desktop-pcs-monoblocks" }
     ];
 
+    const handleMouseLeave = () => {
+        if (lastPath) {
+            router.push(lastPath);
+        }
+    }
 
     return (
-        <aside className={styles.sidebarContainer}>
+        <aside className={styles.sidebarContainer} onMouseLeave={handleMouseLeave}>
             <p>Главная <span> / Каталог</span></p>
 
             <div>
@@ -35,6 +44,7 @@ export function Sidebar() {
                     <SidebarItem
                         key={item.path}
                         item={item}
+                        setLastPath={setLastPath}
                     />
                 ))}
             </div>

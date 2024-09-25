@@ -1,7 +1,6 @@
 'use client'
 
 import styles from "./styles.module.scss"
-
 import { usePathname, useRouter } from "next/navigation"
 import { useMemo } from "react"
 
@@ -10,14 +9,14 @@ export interface SidebarItemsProps {
   path: string
 }
 
-export const SidebarItem = ({ item }: { item: SidebarItemsProps }) => {
+export const SidebarItem = ({ item, setLastPath }: { item: SidebarItemsProps, setLastPath: (path: string) => void }) => {
   const { name, path } = item
   const router = useRouter()
   const pathName = usePathname()
 
-
   const handlePage = () => {
     router.push(path)
+    setLastPath(path)
   }
 
   const isActive = useMemo(() => {
@@ -28,7 +27,7 @@ export const SidebarItem = ({ item }: { item: SidebarItemsProps }) => {
     <>
       <nav
         className={`${styles.sidebar_content}`}
-        onClick={handlePage}
+        onMouseEnter={handlePage}
       >
         <p className={`${isActive && `${styles.sidebar_active}`}`}>
           {name}
