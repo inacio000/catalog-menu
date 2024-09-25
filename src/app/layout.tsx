@@ -1,7 +1,8 @@
 
 import "./globals.css";
 import { Sidebar } from "../components/Sidebar";
-
+import { Header } from "@/components/Header"
+import { Section } from "@/components/Section";
 
 
 export default function RootLayout({
@@ -17,12 +18,12 @@ export default function RootLayout({
         <main className="main">
           <Sidebar />
           <section className="section_content">
-              <div className="container">
-                <h1>Максимум удовольствия от ежедневных дел с нашей новой техникой!</h1>
-                <div>
-                  {children}
-                </div>
+            <div className="container">
+              <h1>Максимум удовольствия от ежедневных дел с нашей новой техникой!</h1>
+              <div>
+                {children}
               </div>
+            </div>
           </section>
         </main>
       </body>

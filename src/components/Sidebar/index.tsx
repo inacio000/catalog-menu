@@ -10,7 +10,7 @@ interface SidebarItemsProps {
     path: string
 }
 
-export function Sidebar() {
+export const Sidebar = () => {
     const router = useRouter()
     const [lastPath, setLastPath] = useState<string>("");
 
