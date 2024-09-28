@@ -7,6 +7,10 @@
     align-items: center;
     justify-content: space-between;
 
+    svg {
+        cursor: pointer;
+    }
+
     nav ul {
         display: flex;
         align-items: center;
@@ -15,6 +19,7 @@
         li {
             font-weight: 400;
         }
+
     }
 
     div {
@@ -26,4 +31,20 @@
             font-weight: bolder;
         }
     }
+
+}
+
+.info {
+    @media (max-width: 1270px) {
+        nav {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        div {
+            display: none;
+        }
+    }
+
 }
