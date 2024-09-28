@@ -1,23 +1,23 @@
 'use client'
 
-import { SidebarItem } from '../Item';
+import { SidebarItem } from '../../Item';
 import styles from './styles.module.scss'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useMobileMenu } from '@/hook/useMobileMenu';
-import { MobileSidebar } from './MobileSidebar';
 
 interface SidebarItemsProps {
     name: string
     path: string
 }
 
-export const Sidebar = () => {
+interface MobileSidebarProps {
+    onClick: () => void
+}
+
+export const MobileSidebar = ({ onClick }: MobileSidebarProps) => {
     const router = useRouter()
     const [lastPath, setLastPath] = useState<string>("");
     const [isMobile, setIsMobile] = useState<boolean>(false);
-    const { isMobileHeaderOpen, setIsMobileHeaderOpen } = useMobileMenu()
-
 
     useEffect(() => {
         const checkIsMobile = () => {
@@ -50,15 +50,12 @@ export const Sidebar = () => {
     };
 
     return (
-
-        <aside className={styles.sidebarContainer} onMouseLeave={handleMouseLeave}>
-            <p>Главная <span> / Каталог</span></p>
+        <aside className={styles.mobileSidebar} onMouseLeave={handleMouseLeave}>
             <div className={styles.sidebarContent}>
                 {items.map((item) => (
-                    <SidebarItem key={item.path} item={item} setLastPath={setLastPath} />
+                    <SidebarItem key={item.path} item={item} setLastPath={setLastPath} onClick={onClick} />
                 ))}
             </div>
         </aside>
-
     );
 }
