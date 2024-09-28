@@ -18,12 +18,28 @@
 
 }
 
+.arrow {
+    position: absolute;
+    top: 155px;
+    display: none;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+
+    cursor: pointer;
+}
+
 .price_cart_section {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    // gap: 2rem;
+
+    @media (max-width: 1040px) {
+        display: none;
+        gap: 2rem;
+    }
 }
 
 .price_section {
