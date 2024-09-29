@@ -14,10 +14,10 @@
   <img src="./src/assets/preview.png" alt="Menu Catalog Page" width="100%">
 </p>
 
-# Running the Project
-- Clone repository
+# Запуск проекта
+- Клонировать репозиторий
   > git clone https://github.com/inacio000/catalog-menu
-- Install dependencies
+- Установить зависимости
   > npm install
   
   > cd catalog-menu
